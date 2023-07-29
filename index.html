@@ -1,0 +1,31 @@
+<html>
+<head>
+	<title> App2 by vaishnavi </title>
+	<style>
+		*{ font-size:40px; }
+	</style>
+	<script>
+		function show()
+		{
+		event.preventDefault();
+		let ans = document.getElementById("ans");
+		let url = "https://api.quotable.io/random";
+		
+		fetch(url)
+		.then(res => res.json())
+		.then(data => ans.innerHTML = data.constant + " --> " + data.author)
+		.catch(err => ans.innerHTML = "issue "+ err);
+		}
+	</script>
+</head>
+
+<body>
+<center>
+	<h1> Motivational msg v2 </h1>
+	<form onsubmit="show()">
+	<input type="submit"value="Get msg"/>
+	</form>
+	<h1 id="ans"/>
+</center>
+</body>
+</html>
